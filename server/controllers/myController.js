@@ -14,3 +14,5 @@ function MyController() {
     // Add Some Logic
   };
 }
+
+module.exports = new MyController();

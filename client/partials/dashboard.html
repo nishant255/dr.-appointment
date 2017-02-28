@@ -1,0 +1,30 @@
+<nav>
+  <a href="#!/new_appointment">New Appointment</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#!/" ng-click="DC.logout()">Logout</a>
+</nav>
+<div class="wrapper">
+  <h1>Doctor's Appointment</h1>
+  <p>Search: <input type="text" ng-model="filter_name" placeholder="Enter User/Appointment"></p>
+  <div>
+    <table id="user_table">
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Time</td>
+          <td>Patient Name</td>
+          <td>Complain</td>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr ng-if="user._appointment" ng-repeat = "user in DC.users | filter: filter_name" >
+          <td>{{user._appointment.date}}</td>
+          <td>{{user._appointment.time}}</td>
+          <td>{{user.name | titleCase}}</td>
+          <td>{{user._appointment.complain}} <a href="#!/" ng-click="DC.cancelApt()" ng-if="user._id === DC.currentuser._id">Cancel</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

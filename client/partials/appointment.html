@@ -1,0 +1,10 @@
+<h1>New Appointment</h1>
+<form ng-submit="AC.createAppointment()">
+  Select Date and Time: <input type="datetime-local" ng-model="AC.newAppointment.date" required><br><br>
+  Complain: <input type="text" ng-model="AC.newAppointment.complain" required><br><br>
+  <input type="submit" value="Add Appointment"><br><br>
+  <a href="#!/">Cancel</a>
+</form>
+<div ng-if="AC.error_message">
+  <p style="color: red;" ng-repeat="message in AC.error_message">{{message}}</p>
+</div>
